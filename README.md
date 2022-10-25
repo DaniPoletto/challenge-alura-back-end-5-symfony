@@ -64,7 +64,7 @@ O login e senha padrão são "usuario" e "teste". A autenticação é feita pass
 #### Retornar videos
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
-|GET | /videos | Retornar todos os videos | - | - |
+| GET | /videos | Retornar todos os videos | - | - |
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_videos.jpg)
 
