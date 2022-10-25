@@ -1,3 +1,32 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+videos:
+  path: /videos
+  controller: App\Controller\VideoController::buscarTodos
+  methods:
+    - GET
+  
+video:
+  path: /videos/{id}
+  controller: App\Controller\VideoController::buscarUm
+  methods:
+    - GET
+
+remove_video:
+  path: /videos/{id}
+  controller: App\Controller\VideoController::remove
+  methods:
+    - DELETE
+  
+nova_video:
+  path: /videos
+  controller: App\Controller\VideoController::novo
+  methods:
+    - POST
+
+atualiza_video:
+  path: /videos/{id}
+  controller: App\Controller\VideoController::atualiza
+  methods:
+    - PUT
