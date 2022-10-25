@@ -25,13 +25,29 @@ Essa edição tem como objetivo construir uma api de plataforma de streaming.
 1 - Baixar os arquivos do repositório utilizando git clone
 
 2 - Instalar as dependências do projeto
-``` componser install```
+``` 
+componser install
+```
 
 3 - Editar o arquivo .env com as credencias do banco de dados
 
+4 - Criar banco
+```
+php bin\console doctrine:database:create
+```
+
+5 - Rodar as migrations
+```
+php bin\console doctrine:migrations:migrate
+```
+
+6 - Subir servidor
+```
+php -S localhost:8080 -t public
+```
 
 ## URL Base
- > http://127.0.0.1:8000/api/
+ > http://localhost:8080
 
 ## Rotas
 
