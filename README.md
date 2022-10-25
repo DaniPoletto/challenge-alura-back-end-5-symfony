@@ -46,6 +46,9 @@ php bin\console doctrine:migrations:migrate
 php -S localhost:8080 -t public
 ```
 
+## Padrão
+O padrão de formato utilizado é o Json tanto para requisições como resposta.
+
 ## URL Base
  > http://localhost:8080
 
@@ -75,10 +78,36 @@ O login e senha padrão são "usuario" e "teste". A autenticação é feita pass
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_video.jpg)
 
+<!--
+É possível ordenar os dados, por exemplo:
+```
+http://localhost:8080/medicos?sort[crm]=ASC&sort[nome]=DESC
+```
+
+Também é possível filtrar passando os parâmetros pela url:
+```
+http://localhost:8080/medicos?crm=123456
+``` 
+
+Utilize a páginação da seguinte forma:
+```
+http://localhost:8080/videos?page=1&per_page=2
+```
+
+-->
+
 #### Cadastrar um video
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |POST | /videos | Cadastrar um video | <pre>{<br> "titulo": "Aula Laravel",<br> "descricao": "videoaula de laravel",<br> "url": "laravel.com.br"<br>}</pre> | - |
+
+##### Campos
+
+| Nome | Tipo | Descrição | 
+| --- | --- | --- | 
+|titulo | string | Obrigatório | 
+|descricao | string | Obrigatório | 
+|url | string | Obrigatório | 
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/post_video.jpg)
 
@@ -86,6 +115,14 @@ O login e senha padrão são "usuario" e "teste". A autenticação é feita pass
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |PUT | /videos/{id} |Atualizar um video por id | <pre>{<br> "titulo": "Aula Laravel",<br> "descricao": "videoaula de laravel",<br> "url": "laravel.com.br"<br>}</pre> | - |
+
+##### Campos
+
+| Nome | Tipo | Descrição | 
+| --- | --- | --- | 
+|titulo | string | Obrigatório | 
+|descricao | string | Obrigatório | 
+|url | string | Obrigatório | 
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/update_video.jpg)
 
