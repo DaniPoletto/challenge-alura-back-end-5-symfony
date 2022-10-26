@@ -76,25 +76,22 @@ O login e senha padrão são "usuario" e "teste". A autenticação é feita pass
 | --- | --- | --- | --- | --- |
 |GET | /videos/{id} | Retornar um video por id | - | - |
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_video.jpg)
-
-<!--
-É possível ordenar os dados, por exemplo:
+##### Ordenação
 ```
-http://localhost:8080/medicos?sort[crm]=ASC&sort[nome]=DESC
+http://localhost:8080/videos?sort[titulo]=ASC&sort[url]=DESC
 ```
 
-Também é possível filtrar passando os parâmetros pela url:
+##### Filtros
 ```
-http://localhost:8080/medicos?crm=123456
-``` 
+http://localhost:8080/videos?titulo=curso laravel
+```
 
-Utilize a páginação da seguinte forma:
+##### Paginação
 ```
 http://localhost:8080/videos?page=1&per_page=2
 ```
 
--->
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_video.jpg)
 
 #### Cadastrar um video
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
