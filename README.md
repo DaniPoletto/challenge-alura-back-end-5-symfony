@@ -84,14 +84,14 @@ http://localhost:8080/videos?titulo=curso laravel
 http://localhost:8080/videos?page=1&per_page=2
 ```
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_videos.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/get_videos.jpg)
 
 #### Retornar um video
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |GET | /videos/{id} | Retornar um video por id | - | - |
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_video.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/get_video.jpg)
 
 #### Cadastrar um video
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
@@ -106,7 +106,7 @@ http://localhost:8080/videos?page=1&per_page=2
 |descricao | string | Obrigatório | 
 |url | string | Obrigatório | 
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/post_video.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/post_video.jpg)
 
 #### Atualizar um video
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
@@ -121,11 +121,11 @@ http://localhost:8080/videos?page=1&per_page=2
 |descricao | string | Obrigatório | 
 |url | string | Obrigatório | 
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/update_video.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/update_video.jpg)
 
 #### Deletar um video
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |DELETE | /videos/{id} |Deletar um video por id | - | - |
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/delete_video.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/delete_video.jpg)
