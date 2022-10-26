@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Factory\VideoFactory;
 use App\Controller\BaseController;
 use App\Repository\VideoRepository;
+use App\Helper\ExtratorDadosRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,45 +23,16 @@ class VideoController extends BaseController
     public function __construct(
         VideoRepository $videoRepository,
         EntityManagerInterface $entityManager,
-        VideoFactory $videoFactory
+        VideoFactory $videoFactory,
+        ExtratorDadosRequest $extratorDadosRequest
     ) {
         parent::__construct
         (
             $videoRepository, 
             $entityManager, 
-            $videoFactory
+            $videoFactory,
+            $extratorDadosRequest,
         );
-    }
-
-    /**
-     * @Route("/video/{id}", methods={"PUT"})
-     */
-    public function atualiza(int $id, Request $request) : Response
-    {
-        $corpoRequisicao = $request->getContent();
-        $videoEnviado = $this->factory->criarEntidade($corpoRequisicao);
-
-        if ($this->repository
-            ->VerificaSeJaExisteDespesaComOutroID(
-                $id,
-                $videoEnviado->getDescricao(),
-                $videoEnviado->getTitulo()
-            ) >0
-        ) 
-            return new JsonResponse(["Erro" => "Já existe outro video igual."]);
-
-        $videoExistente = $this->repository->find($id);
-
-        if (is_null($videoExistente)) {
-            return new Response('', Response::HTTP_NOT_FOUND);
-        }
-
-        $videoExistente->setDescricao($videoEnviado->getDescricao()); 
-        $videoExistente->setTitulo($videoEnviado->getTitulo()); 
-
-        $this->entityManager->flush();
-
-        return new JsonResponse($videoExistente);
     }
 
     /**
@@ -69,6 +41,8 @@ class VideoController extends BaseController
      */
     public function atualizarEntidadeExistente($entityExistente, $entityEnviado)
     {
+        $entityExistente->setTitulo($entityEnviado->getTitulo()); 
         $entityExistente->setDescricao($entityEnviado->getDescricao()); 
+        $entityExistente->setUrl($entityEnviado->getUrl()); 
     }
 }

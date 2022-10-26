@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Helper\ResponseFactory;
 use App\Factory\EntidadeFactory;
+use App\Helper\ExtratorDadosRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,30 +29,62 @@ abstract class BaseController extends AbstractController
      */
     protected $factory;
 
+     /**
+     * @var ExtratorDadosRequest
+     */
+    protected $extratorDadosRequest;
+
+
     public function __construct(
         ObjectRepository $repository,
         EntityManagerInterface $entityManager,
-        EntidadeFactory $factory
+        EntidadeFactory $factory,
+        ExtratorDadosRequest $extratorDadosRequest
     ) {
         $this->repository = $repository;
         $this->entityManager = $entityManager;
         $this->factory = $factory;
+        $this->extratorDadosRequest = $extratorDadosRequest;
     }
     
     public function buscarTodos(Request $request) : Response
     {
-        $informacoesDeOrdenacao = $request->query->get('sort');
-        $EntityList = $this->repository->findBy([], $informacoesDeOrdenacao);
-        return new JsonResponse($EntityList);
+        $informacoesDeOrdenacao = $this->extratorDadosRequest->buscaDadosOrdenacao($request);
+        $informacoesDeFiltro = $this->extratorDadosRequest->buscaDadosFiltro($request);
+        [$paginaAtual, $itensPorPagina] = $this->extratorDadosRequest->buscaDadosPaginacao($request);
+        
+        $EntityList = $this->repository->findBy(
+            $informacoesDeFiltro, 
+            $informacoesDeOrdenacao,
+            $itensPorPagina,
+            ($paginaAtual - 1) * $itensPorPagina
+        );
+
+        $fabricaResposta = new ResponseFactory(
+            true,
+            $EntityList,
+            Response::HTTP_OK,
+            $paginaAtual,
+            $itensPorPagina
+        );
+
+        return $fabricaResposta->getResponse();
     }
 
     public function buscarUm(int $id) : Response
     {
         $entity = $this->repository->find($id);
 
-        $codigoRetorno = is_null($entity) ? Response::HTTP_NO_CONTENT : 200;
+        $codigoRetorno = is_null($entity) ? Response::HTTP_NO_CONTENT : Response::HTTP_OK;
 
-        return new JsonResponse($entity, $codigoRetorno);
+        $fabricaResposta = new ResponseFactory(
+            true,
+            $entity,
+            $codigoRetorno
+        );
+
+        return $fabricaResposta->getResponse();
+
     }
 
     public function remove(int $id) : Response
@@ -73,9 +107,9 @@ abstract class BaseController extends AbstractController
                 'url' => $entity->getUrl(),
             ]
         ))
-        return new JsonResponse(
-            ["Erro" => "Já existe um video com esse titulo, descricao e url."]
-        );
+            return new JsonResponse(
+                ["Erro" => "Já existe um video com esse titulo, descricao e url."]
+            );
 
         $this->repository->add($entity, true);
 
@@ -106,7 +140,12 @@ abstract class BaseController extends AbstractController
 
         $this->entityManager->flush();
 
-        return new JsonResponse($entityExistente);
+        $fabrica = new ResponseFactory(
+            true,
+            $entityExistente,
+            Response::HTTP_OK
+        );
+        return $fabrica->getResponse();
     }
 
     abstract public function atualizarEntidadeExistente(
