@@ -69,13 +69,6 @@ O login e senha padrão são "usuario" e "teste". A autenticação é feita pass
 | --- | --- | --- | --- | --- |
 | GET | /videos | Retornar todos os videos | - | - |
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_videos.jpg)
-
-#### Retornar um video
-| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
-| --- | --- | --- | --- | --- |
-|GET | /videos/{id} | Retornar um video por id | - | - |
-
 ##### Ordenação
 ```
 http://localhost:8080/videos?sort[titulo]=ASC&sort[url]=DESC
@@ -90,6 +83,13 @@ http://localhost:8080/videos?titulo=curso laravel
 ```
 http://localhost:8080/videos?page=1&per_page=2
 ```
+
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_videos.jpg)
+
+#### Retornar um video
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /videos/{id} | Retornar um video por id | - | - |
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/get_video.jpg)
 
