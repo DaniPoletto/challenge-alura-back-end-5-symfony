@@ -16,7 +16,7 @@ Essa edição tem como objetivo construir uma api de plataforma de streaming.
 - [ ] <b>3ª e 4ª semana</b> - Na última fase do desafio o objetivo será a implementação de mais funcionalidades: paginação, autenticação; deploy da aplicação.-
 
 ## Tecnologias utilizadas
-[Symfony 5.4](https://symfony.com/doc/5.4/setup.html), Doctrine e PHP 7.3.5. 
+[Symfony 5.4](https://symfony.com/doc/5.4/setup.html), Doctrine, MySQL e PHP 7.3.5. 
 
 ## Versão em Laravel
 > [Versão em Laravel](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel)
