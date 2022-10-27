@@ -41,6 +41,11 @@ php bin\console doctrine:database:create
 php bin\console doctrine:migrations:migrate
 ```
 
+6 - Rodar fixtures para criar usuário para teste
+```
+php bin\console doctrine:fixtures:load
+```
+
 6 - Subir servidor
 ```
 php -S localhost:8080 -t public
