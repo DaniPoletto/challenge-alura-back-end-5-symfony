@@ -85,42 +85,42 @@ O padrão de formato utilizado é o Json tanto para requisições como resposta.
 
 O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação é feita passando um Bearer Token como Authorization.
 
-### 1 Categorias
-#### 1.1 Retornar categorias
+### Categorias
+#### Retornar categorias
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |GET | /categorias | Retornar todas as categorias | - | - |
 
-##### 1.1.1 Ordenação
+##### Ordenação
 ```
 /categorias?sort[titulo]=ASC&sort[cor]=DESC
 ```
 
-##### 1.1.2 Filtros
+##### Filtros
 ```
 /categorias?titulo=curso
 ```
 
-##### 1.1.3 Paginação
+##### Paginação
 ```
 /categorias?page=1&per_page=2
 ```
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/get_categorias.jpg)
 
-#### 1.2 Retornar uma categoria
+#### Retornar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |GET | /categorias/{id} | Retornar uma categoria por id | - | - |
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/get_categoria.jpg)
 
-#### 1.3 Cadastrar uma categoria
+#### Cadastrar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |POST | /categorias | Cadastrar uma categoria | <pre>{<br> "titulo": "Laravel",<br> "cor": "#ffffff"<br>}</pre> | - |
 
-##### 1.3.1 Campos
+##### Campos
 
 | Nome | Tipo | Descrição | 
 | --- | --- | --- | 
@@ -129,12 +129,12 @@ O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação �
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/post_categoria.jpg)
 
-#### 1.4 Atualizar uma categoria
+#### Atualizar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |PUT | /categorias/{id} |Atualizar uma categoria por id | <pre>{<br> "titulo": "Laravel",<br> "cor": "#ffffff",<br>}</pre> | - |
 
-##### 1.4.1 Campos
+##### Campos
 
 | Nome | Tipo | Descrição | 
 | --- | --- | --- | 
@@ -143,7 +143,7 @@ O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação �
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/update_categoria.jpg)
 
-#### 1.5 Deletar uma categoria
+#### Deletar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |DELETE | /categorias/{id} |Deletar uma categoria por id | - | - |
