@@ -106,14 +106,14 @@ O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação �
 /categorias?page=1&per_page=2
 ```
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/get_categorias.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/imagens_readme/get_categorias.jpg)
 
 #### Retornar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |GET | /categorias/{id} | Retornar uma categoria por id | - | - |
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/get_categoria.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/imagens_readme/get_categoria.jpg)
 
 #### Cadastrar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
@@ -127,7 +127,7 @@ O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação �
 |titulo | string | Obrigatório | 
 |cor | string | Obrigatório | 
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/post_categoria.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/imagens_readme/post_categoria.jpg)
 
 #### Atualizar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
@@ -141,14 +141,14 @@ O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação �
 |titulo | string | Obrigatório | 
 |cor | string | Obrigatório | 
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/update_categoria.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/imagens_readme/update_categoria.jpg)
 
 #### Deletar uma categoria
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |DELETE | /categorias/{id} |Deletar uma categoria por id | - | - |
 
-![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/delete_categoria.jpg)
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/imagens_readme/delete_categoria.jpg)
 
 ### Videos
 #### Retornar videos
