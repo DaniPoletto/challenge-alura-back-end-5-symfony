@@ -18,13 +18,13 @@ Essa edição tem como objetivo construir uma api de plataforma de streaming.
    - [X] Testes Postman
 
 - [ ] <b>2ª semana</b> - Nesta segunda semana do desafio o objetivo é criar mais de um modelo/entidade, rotas CRUD e relacionais, buscas na base via parâmetros de query, fazer testes de unidade e integração.
-   - [ ] Retornar categorias
-   - [ ] Retornar um categoria
-   - [ ] Cadastrar categoria
-   - [ ] Atualizar categoria
-   - [ ] Deletar categoria
-   - [ ] Atribuir vídeo a categoria
-   - [ ] Retornar vídeos por categoria
+   - [X] Retornar categorias
+   - [X] Retornar um categoria
+   - [X] Cadastrar categoria
+   - [X] Atualizar categoria
+   - [X] Deletar categoria
+   - [X] Atribuir vídeo a categoria
+   - [X] Retornar vídeos por categoria
    - [X] Utilizar query parameters em vídeo
    - [ ] Testes de unidade
    - [ ] Testes de integração
@@ -85,6 +85,71 @@ O padrão de formato utilizado é o Json tanto para requisições como resposta.
 
 O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação é feita passando um Bearer Token como Authorization.
 
+### 1 Categorias
+#### 1.1 Retornar categorias
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /categorias | Retornar todas as categorias | - | - |
+
+##### 1.1.1 Ordenação
+```
+/categorias?sort[titulo]=ASC&sort[cor]=DESC
+```
+
+##### 1.1.2 Filtros
+```
+/categorias?titulo=curso
+```
+
+##### 1.1.3 Paginação
+```
+/categorias?page=1&per_page=2
+```
+
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/get_categorias.jpg)
+
+#### 1.2 Retornar uma categoria
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /categorias/{id} | Retornar uma categoria por id | - | - |
+
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/get_categoria.jpg)
+
+#### 1.3 Cadastrar uma categoria
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|POST | /categorias | Cadastrar uma categoria | <pre>{<br> "titulo": "Laravel",<br> "cor": "#ffffff"<br>}</pre> | - |
+
+##### 1.3.1 Campos
+
+| Nome | Tipo | Descrição | 
+| --- | --- | --- | 
+|titulo | string | Obrigatório | 
+|cor | string | Obrigatório | 
+
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/post_categoria.jpg)
+
+#### 1.4 Atualizar uma categoria
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|PUT | /categorias/{id} |Atualizar uma categoria por id | <pre>{<br> "titulo": "Laravel",<br> "cor": "#ffffff",<br>}</pre> | - |
+
+##### 1.4.1 Campos
+
+| Nome | Tipo | Descrição | 
+| --- | --- | --- | 
+|titulo | string | Obrigatório | 
+|cor | string | Obrigatório | 
+
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/update_categoria.jpg)
+
+#### 1.5 Deletar uma categoria
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|DELETE | /categorias/{id} |Deletar uma categoria por id | - | - |
+
+![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-laravel/blob/main/imagens_readme/delete_categoria.jpg)
+
 ### Videos
 #### Retornar videos
 | Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
@@ -93,17 +158,17 @@ O login e senha padrão são "teste@teste.com.br" e "123456". A autenticação �
 
 ##### Ordenação
 ```
-http://localhost:8080/videos?sort[titulo]=ASC&sort[url]=DESC
+/videos?sort[titulo]=ASC&sort[url]=DESC
 ```
 
 ##### Filtros
 ```
-http://localhost:8080/videos?titulo=curso laravel
+/videos?titulo=curso laravel
 ```
 
 ##### Paginação
 ```
-http://localhost:8080/videos?page=1&per_page=2
+/videos?page=1&per_page=2
 ```
 
 ![Video](https://github.com/DaniPoletto/challenge-alura-back-end-5-symfony/blob/main/get_videos.jpg)
