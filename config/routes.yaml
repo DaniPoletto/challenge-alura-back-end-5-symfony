@@ -30,3 +30,39 @@ atualiza_video:
   controller: App\Controller\VideoController::atualiza
   methods:
     - PUT
+
+categorias:
+  path: /categorias
+  controller: App\Controller\CategoriaController::buscarTodos
+  methods:
+    - GET
+  
+categoria:
+  path: /categorias/{id}
+  controller: App\Controller\CategoriaController::buscarUm
+  methods:
+    - GET
+
+remove_categoria:
+  path: /categorias/{id}
+  controller: App\Controller\CategoriaController::remove
+  methods:
+    - DELETE
+  
+nova_categoria:
+  path: /categorias
+  controller: App\Controller\CategoriaController::novo
+  methods:
+    - POST
+
+atualiza_categoria:
+  path: /categorias/{id}
+  controller: App\Controller\CategoriaController::atualiza
+  methods:
+    - PUT
+
+videos_categoria:
+  path: /categorias/{id}/videos
+  controller: App\Controller\VideoController::buscaPorCategoria
+  methods:
+    - GET

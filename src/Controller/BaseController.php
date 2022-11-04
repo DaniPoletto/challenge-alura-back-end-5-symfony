@@ -100,15 +100,11 @@ abstract class BaseController extends AbstractController
         $corpoRequisicao = $request->getContent();
         $entity = $this->factory->criarEntidade($corpoRequisicao);
 
-        if ($this->repository->count(
-            [
-                'titulo' => $entity->getTitulo(),
-                'descricao' => $entity->getDescricao(),
-                'url' => $entity->getUrl(),
-            ]
-        ))
+        $entity = $this->setValoresDefault($entity);
+
+        if ($this->verificaSeJaTemUm($entity))
             return new JsonResponse(
-                ["Erro" => "Já existe um video com esse titulo, descricao e url."]
+                ["Erro" => "Já existe um registro com esses valores."]
             );
 
         $this->repository->add($entity, true);
@@ -121,14 +117,8 @@ abstract class BaseController extends AbstractController
         $corpoRequisicao = $request->getContent();
         $entityEnviado = $this->factory->criarEntidade($corpoRequisicao);
 
-        if ($this->repository
-            ->VerificaSeJaExisteDespesaComOutroID(
-                $id,
-                $entityEnviado->getDescricao(),
-                $entityEnviado->getTitulo()
-            ) >0
-        ) 
-        return new JsonResponse(["Erro" => "Já existe outro video igual."]);
+        if ($this->verificaSeJaTemUmComOutroId($id, $entityEnviado) >0) 
+            return new JsonResponse(["Erro" => "Já existe outro registro igual."]);
 
         $entityExistente = $this->repository->find($id);
 
@@ -152,4 +142,10 @@ abstract class BaseController extends AbstractController
         $entityExistente,
         $entityEnviado
     );
+
+    abstract public function verificaSeJaTemUm($entity);
+
+    abstract public function verificaSeJaTemUmComOutroId($id, $entity);
+
+    abstract public function setValoresDefault($entity);
 }

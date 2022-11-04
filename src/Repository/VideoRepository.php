@@ -39,7 +39,7 @@ class VideoRepository extends ServiceEntityRepository
         }
     }
 
-    public function VerificaSeJaExisteDespesaComOutroID($id, $descricao, $titulo)
+    public function VerificaSeJaExisteVideoComOutroID($id, $descricao, $titulo)
     {
        return $this->createQueryBuilder('v')
                     ->select('count(v.id) as count')
