@@ -29,10 +29,10 @@ Essa edição tem como objetivo construir uma api de plataforma de streaming.
    - [ ] Testes de unidade
    - [ ] Testes de integração
 
-- [ ] <b>3ª e 4ª semana</b> - Paginação, autenticação e deploy da aplicação.
+- [X] <b>3ª e 4ª semana</b> - Paginação, autenticação e deploy da aplicação.
    - [X] Paginação
    - [X] Autenticação
-   - [ ] Deploy
+   - [X] Deploy (Deploy feito na versão em Laravel)
 
 ## Tecnologias utilizadas
 [Symfony 5.4](https://symfony.com/doc/5.4/setup.html), Doctrine, MySQL e PHP 7.3.5. 
